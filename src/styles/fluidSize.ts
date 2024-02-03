@@ -12,7 +12,7 @@ const fluidSize = (
 
   const slope = (maxSize - minSize) / (maxVW - minVW);
 
-  const fluidSize = `calc(${slope} * (100vw + ${minSizeRem}))`;
+  const fluidSize = `calc(${slope} * (100vw - ${pxToRem(minVW)}) + ${minSizeRem})`;
 
   return `clamp(${minSizeRem}, ${fluidSize}, ${maxSizeRem})`;
 };

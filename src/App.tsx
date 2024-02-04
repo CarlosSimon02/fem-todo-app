@@ -1,12 +1,12 @@
-import BGImage from './components/bg-image/bg-image.component';
+import Main from './routes/main/main.route';
+import GlobalStyle from './styles/global-style';
 
 const App = () => {
   return (
-    <div>
-      <BGImage />
-      <header></header>
-      <main></main>
-    </div>
+    <>
+      <GlobalStyle />
+      <Main />
+    </>
   );
 };
 

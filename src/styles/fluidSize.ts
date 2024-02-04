@@ -1,7 +1,7 @@
-import { BreakpointUp } from './breakpoints';
+import { BREAKPOINTS, BreakpointUp } from './breakpoints';
 import pxToRem from './pxToRem';
 
-const fluidSize = (
+export const fluidSize = (
   minSize: number,
   maxSize: number,
   minVW: BreakpointUp,
@@ -17,4 +17,6 @@ const fluidSize = (
   return `clamp(${minSizeRem}, ${fluidSize}, ${maxSizeRem})`;
 };
 
-export default fluidSize;
+export const fluidSizeMobileToDesktop = (minSize: number, maxSize: number): string => {
+  return fluidSize(minSize, maxSize, BREAKPOINTS.UP.MOBILE, BREAKPOINTS.UP.DESKTOP);
+};

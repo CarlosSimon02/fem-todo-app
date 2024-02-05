@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-import { fluidSizeMobileToDesktop } from '../../styles/fluidSize';
-import FONT_WEIGHTS from '../../styles/font-weights';
+import FONT_WEIGHTS from '../../styles/constants/font-weights';
+import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 
 export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-block-end: ${fluidSizeMobileToDesktop(40, 48)};
 `;
 
 export const StyledLogo = styled.h1`

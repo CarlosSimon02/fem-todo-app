@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { ReactComponent as MoonSVG } from '../../assets/icon-moon.svg';
-import pxToRem from '../../styles/pxToRem';
+import { ReactComponent as SunSVG } from '../../assets/icon-sun.svg';
+import pxToRem from '../../styles/functions/pxToRem';
 
 export const StyledThemeSwitcherButton = styled.button`
   cursor: pointer;
@@ -12,7 +13,15 @@ export const StyledThemeSwitcherButton = styled.button`
   background-color: transparent;
 `;
 
-export const StyledMoonIcon = styled(MoonSVG)`
+const StyledIcon = css`
   width: 100%;
   height: 100%;
+`;
+
+export const StyledMoonIcon = styled(MoonSVG)`
+  ${StyledIcon}
+`;
+
+export const StyledSunIcon = styled(SunSVG)`
+  ${StyledIcon}
 `;

@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
 
-import FONT_WEIGHTS from './font-weights';
+import FONT_WEIGHTS from './constants/font-weights';
 
 const Resets = css`
   *,
@@ -53,8 +53,8 @@ const Base = css`
   }
 
   body {
-    background-color: var(--primary-color-1);
-    color: var(--secondary-color-1);
+    background-color: ${({ theme }) => theme.color.body.background};
+    color: ${({ theme }) => theme.color.body.text};
     font-family: 'Josefin Sans', sans-serif;
     font-optical-sizing: auto;
     font-weight: ${FONT_WEIGHTS.REGULAR};

@@ -16,6 +16,9 @@ const darktheme = {
       border: 'hsl(236.69, 13.64%, 25.88%)',
       fill: 'linear-gradient(to bottom right, red, yellow)',
     },
+    crossIcon: {
+      fill: 'hsl(234.86, 16.13%, 42.55%)',
+    },
     toDoList: {
       background: 'hsl(236.69, 13.64%, 25.88%)',
     },
@@ -37,6 +40,9 @@ const lightTheme = {
     checkbox: {
       border: 'hsl(235.71, 33.33%, 91.76%)',
       fill: 'linear-gradient(to bottom right, red, yellow)',
+    },
+    crossIcon: {
+      fill: 'hsl(234.71, 18.89%, 35.29%)',
     },
     toDoList: {
       background: 'hsl(235.71, 33.33%, 91.76%)',

@@ -5,18 +5,16 @@ export enum ThemeType {
   Dark = 'dark',
 }
 
-type ThemeProviderProps = {
-  children: ReactNode;
-};
-
 type ThemeContextProps = {
   currentTheme: ThemeType;
   setCurrentTheme: Dispatch<SetStateAction<ThemeType>>;
 };
 
-export const CurrentThemeContext = createContext<ThemeContextProps | undefined>(
-  undefined,
-);
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+export const CurrentThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const CurrentThemeProvider = ({ children }: ThemeProviderProps) => {
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(ThemeType.Dark);
@@ -26,9 +24,5 @@ export const CurrentThemeProvider = ({ children }: ThemeProviderProps) => {
     setCurrentTheme,
   };
 
-  return (
-    <CurrentThemeContext.Provider value={contextValue}>
-      {children}
-    </CurrentThemeContext.Provider>
-  );
+  return <CurrentThemeContext.Provider value={contextValue}>{children}</CurrentThemeContext.Provider>;
 };

@@ -34,18 +34,17 @@ export const ToDoItemsProvider = ({ children }: ToDoItemsProviderProps) => {
   const [currentFilter, setCurrentFilter] = useState<FilterType>(FilterType.All);
 
   useEffect(() => {
-    setFilteredToDoItems(toDoItems);
-    // switch (currentFilter) {
-    //   case FilterType.All:
-    //     setFilteredToDoItems(toDoItems);
-    //     return;
-    //   case FilterType.Active:
-    //     setFilteredToDoItems(toDoItems.filter((item) => !item.isDone));
-    //     return;
-    //   case FilterType.Done:
-    //     setFilteredToDoItems(toDoItems.filter((item) => item.isDone));
-    //     return;
-    // }
+    switch (currentFilter) {
+      case FilterType.All:
+        setFilteredToDoItems(toDoItems);
+        return;
+      case FilterType.Active:
+        setFilteredToDoItems(toDoItems.filter((item) => !item.isDone));
+        return;
+      case FilterType.Done:
+        setFilteredToDoItems(toDoItems.filter((item) => item.isDone));
+        return;
+    }
   }, [toDoItems, currentFilter]);
 
   const createToDoItem = (toAddItem: ToDoItem) => {

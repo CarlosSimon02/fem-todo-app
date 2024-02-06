@@ -7,8 +7,4 @@ export const StyledHomeContainer = styled.div`
   display: grid;
   align-items: stretch;
   gap: ${pxToRem(16)};
-
-  & * {
-    width: 100%;
-  }
 `;

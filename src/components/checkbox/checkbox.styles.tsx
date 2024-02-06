@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
 import { ReactComponent as CheckSVG } from '../../assets/icon-check.svg';
+import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 import pxToRem from '../../styles/functions/pxToRem';
 
-export const StyledCheckboxContainer = styled.div`
+export const StyledCheckboxButton = styled.button`
   cursor: pointer;
   width: ${pxToRem(20)};
   height: ${pxToRem(20)};
   position: absolute;
   left: ${pxToRem(20)};
-  top: 50%;
-  transform: translateY(-50%);
+  top: ${fluidSizeMobileToDesktop(16, 20)};
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent;
+  border: none;
 
   &.unchecked {
     border: ${pxToRem(1.8)} solid ${({ theme }) => theme.color.checkbox.border};

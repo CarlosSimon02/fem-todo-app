@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import { CurrentThemeProvider } from './contexts/current-theme.context';
+import { ToDoItemsProvider } from './contexts/to-do-items.context';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <CurrentThemeProvider>
-      <App />
+      <ToDoItemsProvider>
+        <App />
+      </ToDoItemsProvider>
     </CurrentThemeProvider>
   </React.StrictMode>,
 );

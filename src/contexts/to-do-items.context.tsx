@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, createContext, useEffect, useState } from 'react';
+import { Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState } from 'react';
 
 export enum FilterType {
   All = 'all',
@@ -6,8 +6,8 @@ export enum FilterType {
   Active = 'active',
 }
 
-type ToDoItem = {
-  id: number;
+export type ToDoItem = {
+  id: string;
   isDone: boolean;
   task: string;
 };
@@ -19,28 +19,33 @@ type ToDoItemsContextProps = {
   setCurrentFilter: Dispatch<SetStateAction<FilterType>>;
   createToDoItem: (toAddItem: ToDoItem) => void;
   updateToDoItem: (toUpdateItem: ToDoItem) => void;
-  deleteToDoItem: (toDeleteIDItem: number) => void;
+  deleteToDoItem: (toDeleteIDItem: string) => void;
+};
+
+type ToDoItemsProviderProps = {
+  children: ReactNode;
 };
 
 export const ToDoItemsContext = createContext<ToDoItemsContextProps | undefined>(undefined);
 
-export const ToDoItemsProvider = () => {
+export const ToDoItemsProvider = ({ children }: ToDoItemsProviderProps) => {
   const [toDoItems, setToDoItems] = useState<ToDoItem[]>([]);
   const [filteredToDoItems, setFilteredToDoItems] = useState<ToDoItem[]>([]);
   const [currentFilter, setCurrentFilter] = useState<FilterType>(FilterType.All);
 
   useEffect(() => {
-    switch (currentFilter) {
-      case FilterType.All:
-        setFilteredToDoItems(toDoItems);
-        return;
-      case FilterType.Active:
-        setFilteredToDoItems(toDoItems.filter((item) => !item.isDone));
-        return;
-      case FilterType.Done:
-        setFilteredToDoItems(toDoItems.filter((item) => item.isDone));
-        return;
-    }
+    setFilteredToDoItems(toDoItems);
+    // switch (currentFilter) {
+    //   case FilterType.All:
+    //     setFilteredToDoItems(toDoItems);
+    //     return;
+    //   case FilterType.Active:
+    //     setFilteredToDoItems(toDoItems.filter((item) => !item.isDone));
+    //     return;
+    //   case FilterType.Done:
+    //     setFilteredToDoItems(toDoItems.filter((item) => item.isDone));
+    //     return;
+    // }
   }, [toDoItems, currentFilter]);
 
   const createToDoItem = (toAddItem: ToDoItem) => {
@@ -60,7 +65,7 @@ export const ToDoItemsProvider = () => {
     }
   };
 
-  const deleteToDoItem = (toDeleteIDItem: number) => {
+  const deleteToDoItem = (toDeleteIDItem: string) => {
     const indexToDelete = toDoItems.findIndex((item) => item.id === toDeleteIDItem);
 
     if (indexToDelete !== -1) {
@@ -80,5 +85,5 @@ export const ToDoItemsProvider = () => {
     deleteToDoItem,
   };
 
-  return <ToDoItemsContext.Provider value={contextValue}></ToDoItemsContext.Provider>;
+  return <ToDoItemsContext.Provider value={contextValue}>{children}</ToDoItemsContext.Provider>;
 };

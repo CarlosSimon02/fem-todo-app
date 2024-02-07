@@ -12,11 +12,15 @@ const darktheme = {
     },
     mainBox: {
       background: 'hsl(235, 24.49%, 19.22%)',
-      text: 'hsl(234.19, 39.24%, 84.51%)',
+      text: 'hsl(235, 16%, 42%)',
       boxShadow: 'hsl(0, 0%, 0%, 50%)',
     },
     itemBox: {
       doneText: 'hsl(233.08, 14.44%, 35.29%)',
+      text: 'hsl(234.19, 39.24%, 84.51%)',
+    },
+    linkButton: {
+      hover: 'hsl(235.71, 33.33%, 91.76%)',
     },
     inputText: {
       placeholder: 'hsl(233.57, 11.38%, 51.76%)',
@@ -46,11 +50,15 @@ const lightTheme = {
     },
     mainBox: {
       background: 'hsl(0, 0%, 100%)',
-      text: 'hsl(236.69, 13.64%, 25.88%)',
+      text: 'hsl(235, 9%, 61%)',
       boxShadow: 'hsla(235, 19%, 80%, 50%)',
     },
     itemBox: {
       doneText: 'hsl(233.33, 10.84%, 83.73%)',
+      text: 'hsl(235, 19%, 35%)',
+    },
+    linkButton: {
+      hover: 'hsl(235, 19%, 35%)',
     },
     inputText: {
       placeholder: 'hsl(236.47, 8.63%, 61.37%)',
@@ -60,7 +68,7 @@ const lightTheme = {
       fill: 'linear-gradient(to bottom right, red, yellow)',
     },
     crossIcon: {
-      fill: 'hsl(234.71, 18.89%, 35.29%)',
+      fill: 'hsl(235, 9%, 61%)',
     },
     toDoList: {
       background: 'hsl(235.71, 33.33%, 91.76%)',

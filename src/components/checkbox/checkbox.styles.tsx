@@ -20,6 +20,10 @@ export const StyledCheckboxButton = styled.button`
 
   &.unchecked {
     border: ${pxToRem(1.8)} solid ${({ theme }) => theme.color.checkbox.border};
+
+    &:hover {
+      border-color: ${({ theme }) => theme.color.linkButton.hover};
+    }
   }
 
   &.checked {

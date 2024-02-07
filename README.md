@@ -4,7 +4,7 @@ Get things done effortlessly with my FEM To-Do App! Keep track of your tasks, se
 
 ## 📃Table of contents
 
-- [Overview](#overview)
+<!-- - [Overview](#overview)
   - [Preface](#preface)
   - [Features](#features)
   - [To Add Features](#to-add-features)
@@ -12,7 +12,7 @@ Get things done effortlessly with my FEM To-Do App! Keep track of your tasks, se
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [What I learned](#what-i-learned) -->
 
 ## 👁️Overview
 
@@ -30,7 +30,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### 📸Screenshot
 
-![](./preview/screenshot.png)
+<!-- ![](./preview/screenshot.png) -->
 
 ### 🔗Links
 
@@ -51,7 +51,16 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### 🧠What I learned
 
-1. **`:focus` vs `:focus-visible`**
+1. #### **TypeScript**
+
+   Handling unpredictable behaviors in JavaScript, such as uncertainties about function input/output and dealing with `undefined` or `null` types, can be challenging. That's why I turned to TypeScript. With TypeScript, I gain clarity on expected values, making coding easier. Additionally, the built-in intellisense in code editors provides helpful hints, reducing the need to constantly refer to my codebase for information.
+
+   These are the resources that I use:
+
+   - <https://react.dev/learn/typescript>
+   - <https://www.typescriptlang.org/docs/handbook/react.html>
+
+2. **`:focus` vs `:focus-visible`**
 
    `:focus`
 
@@ -59,19 +68,19 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
    `:focus-visible`
 
-   Style when element gets focus from navigation (keyboard) but not mouse clicks or taps.
+   Style when element gets focus from navigation (keyboard) but not mouse clicks or taps except for `input` elements (Not sure why);
 
    I use this for accessibility purposes
 
-2. **Unnecessary use of useEffect()**
+3. **Unnecessary use of useEffect()**
 
-   You don't have to call `updateToDoItem()` on component mount
+   I don't have to call `updateToDoItem()` on component mount
 
    Don't ❌
 
    ```js
    useEffect(() => {
-     updateToDoItem({ ...toDoItem, isDone: isChecked });
+     updateToDoItem({ ...toDoItem, isCompleted: isChecked });
    }, [isChecked]);
 
    const toggleCheckHandler = () => {
@@ -87,8 +96,49 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    const toggleCheckHandler = () => {
      const newIsChecked = !isChecked;
      setIsChecked(newIsChecked);
-     updateToDoItem({ ...toDoItem, isDone: newIsChecked });
+     updateToDoItem({ ...toDoItem, isCompleted: newIsChecked });
    };
    ```
 
    This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react
+
+4. **`as` keyword in Typescript**
+
+   Pretty much the same as type casting in other languages like C++.
+
+   C++:
+
+   ```c++
+   bool myBool = true;
+   int myInt = static_cast<int>(myBool);
+   ```
+
+   TypeScript:
+
+   ```typescript
+   let myBool: boolean = true;
+   let myInt: number = myBool as unknown as number;
+   ```
+
+5. **Syling hidden `input[type='radio']`**
+
+   I don't know how many times I came accross with this problem before but now that I use react, it's even worse.
+
+   Don't ❌
+
+   ```html
+   <input class="sr-only" name="fruit" id="apple" /> <label for="apple">Apple</label>
+   ```
+
+   There's this weird thing happening when I click. The check mark ends up in the wrong place, not where I clicked.
+
+   Do ✅
+
+   ```html
+   <label for="apple">
+     <input class="sr-only" name="fruit" id="apple" />
+     <p>Apple</p>
+   </label>
+   ```
+
+   I found a fix that works for me. I just apply styles to the label when the `input` is hidden using the `:checked + p` selector. This gets rid of that strange behavior I mentioned earlier.

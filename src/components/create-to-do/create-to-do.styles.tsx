@@ -9,8 +9,8 @@ export const StyledCreateToDoContainer = styled.div`
 `;
 
 export const StyledCreateToDoInput = styled.input`
-  ${ItemBox}
   ${MainBox}
+  ${ItemBox}
   border: none;
   width: 100%;
   padding-inline-start: ${fluidSizeMobileToDesktop(52, 72)};

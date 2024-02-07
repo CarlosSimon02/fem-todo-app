@@ -39,7 +39,6 @@ export const ToDoItemsProvider = ({ children }: ToDoItemsProviderProps) => {
   const [currentFilter, setCurrentFilter] = useState<FilterType>(FilterType.All);
 
   useEffect(() => {
-    console.log('run');
     setActiveItemsCount(toDoItems.reduce((sum, item) => sum + (!item.isCompleted ? 1 : 0), 0));
     setCompletedItemsCount(toDoItems.reduce((sum, item) => sum + (item.isCompleted ? 1 : 0), 0));
 

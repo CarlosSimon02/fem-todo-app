@@ -135,7 +135,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    Do ✅
 
    ```html
-   <label for="apple">
+   <label>
      <input class="sr-only" name="fruit" id="apple" />
      <p>Apple</p>
    </label>

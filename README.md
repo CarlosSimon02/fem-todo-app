@@ -69,6 +69,8 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    };
    ```
 
+   I'm trying to understand why, when I delete an item, the `updateToDoItem()` inside the `useEffect()` works fine when I use `toDoItems` for showing my to-dos. But when I use `filteredToDoItems`, it seems to have an issue. My guess is that when I delete an item, `toDoItems` update first, causing the component to rerender before `filteredToDoItems` get updated. I'm trying to figure out the reason behind this behavior.
+
    Do ✅
 
    ```js
@@ -79,4 +81,4 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    };
    ```
 
-   This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react
+This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react

@@ -14,10 +14,17 @@ export const StyledRemoveItemButton = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
+
+  &:hover path {
+    fill: ${({ theme }) => theme.color.linkButton.hover};
+  }
 `;
 
 export const StyledCrossIcon = styled(CrossSVG)`
   width: 100%;
   height: 100%;
-  fill: ${({ theme }) => theme.color.crossIcon.fill};
+
+  & path {
+    fill: ${({ theme }) => theme.color.crossIcon.fill};
+  }
 `;

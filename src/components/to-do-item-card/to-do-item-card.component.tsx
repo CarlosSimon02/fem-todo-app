@@ -11,8 +11,8 @@ type ToDoItemCardProps = {
 };
 
 const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
-  const { id, isDone, task } = toDoItem;
-  const [isChecked, setIsChecked] = useState(isDone);
+  const { id, isCompleted, task } = toDoItem;
+  const [isChecked, setIsChecked] = useState(isCompleted);
   const toDoItemsContext = useContext(ToDoItemsContext);
 
   if (!toDoItemsContext) {
@@ -23,8 +23,8 @@ const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
 
   const toggleCheckHandler = () => {
     const newIsChecked = !isChecked;
+    updateToDoItem({ ...toDoItem, isCompleted: newIsChecked });
     setIsChecked(newIsChecked);
-    updateToDoItem({ ...toDoItem, isDone: newIsChecked });
   };
 
   return (

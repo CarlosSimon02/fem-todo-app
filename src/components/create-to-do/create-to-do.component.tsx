@@ -32,7 +32,7 @@ const CreateToDo = () => {
     if (inputValue) {
       switch (event.key) {
         case 'Enter':
-          createToDoItem({ id: v4(), isDone: isChecked, task: inputValue });
+          createToDoItem({ id: v4(), isCompleted: isChecked, task: inputValue });
 
           // Clear the input value
           if (inputRef.current) {

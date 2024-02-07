@@ -51,7 +51,17 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### 🧠What I learned
 
-1. **:focus vs :focus-visible**
+1. **`:focus` vs `:focus-visible`**
+
+   `:focus`
+
+   Selects and styles an element when it receives focus, regardless of how focus is triggered (keyboard, mouse, touch).
+
+   `:focus-visible`
+
+   Style when element gets focus from navigation (keyboard) but not mouse clicks or taps.
+
+   I use this for accessibility purposes
 
 2. **Unnecessary use of useEffect()**
 

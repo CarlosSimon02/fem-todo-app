@@ -1,6 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components';
 
 import FONT_WEIGHTS from './constants/font-weights';
+import pxToRem from './functions/pxToRem';
 
 const Resets = css`
   *,
@@ -71,6 +72,12 @@ const Base = css`
     height: 1px !important;
     overflow: hidden !important;
     white-space: nowrap !important;
+  }
+
+  //Added style to all focusable elements when using tab or keyboard selection
+  *:focus-visible {
+    outline: ${pxToRem(1)} solid ${({ theme }) => theme.color.accent.main};
+    outline-offset: 3px;
   }
 `;
 

@@ -28,7 +28,7 @@ const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
   };
 
   return (
-    <StyledToDoItemCardContainer>
+    <StyledToDoItemCardContainer className={isChecked ? 'done' : ''}>
       <Checkbox checked={isChecked} onClick={toggleCheckHandler} />
       <p>{task}</p>
       <RemoveItemButton toDoItemID={id} />

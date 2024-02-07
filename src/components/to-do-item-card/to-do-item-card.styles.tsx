@@ -10,4 +10,9 @@ export const StyledToDoItemCardContainer = styled.div`
   padding-inline: ${fluidSizeMobileToDesktop(52, 72)};
   text-overflow: ellipsis;
   overflow: hidden;
+
+  &.done {
+    text-decoration: line-through;
+    color: ${({ theme }) => theme.color.itemBox.doneText};
+  }
 `;

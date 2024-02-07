@@ -142,3 +142,24 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    ```
 
    I found a fix that works for me. I just apply styles to the label when the `input` is hidden using the `:checked + p` selector. This gets rid of that strange behavior I mentioned earlier.
+
+6. **Do not return the same reference to the updater function in useState() IDIOT!!!**
+
+   Don't ❌
+
+   ```typescript
+   setToDoItems((prevToDoItems) => {
+     prevToDoItems[indexToUpdate] = toUpdateItem;
+     return prevToDoItems;
+   });
+   ```
+
+   Do ✅
+
+   ```typescript
+   setToDoItems((prevToDoItems) => {
+     const updatedItems = [...prevToDoItems];
+     updatedItems[indexToUpdate] = toUpdateItem;
+     return updatedItems;
+   });
+   ```

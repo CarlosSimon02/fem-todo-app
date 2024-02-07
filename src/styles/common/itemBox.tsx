@@ -8,6 +8,7 @@ const ItemBox = css`
   padding-inline: ${fluidSizeMobileToDesktop(20, 24)};
   text-overflow: ellipsis;
   line-height: 1.5;
+  color: ${({ theme }) => theme.color.itemBox.text};
 `;
 
 export default ItemBox;

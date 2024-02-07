@@ -2,7 +2,12 @@ import { useContext } from 'react';
 
 import { ToDoItemsContext } from '../../contexts/to-do-items.context';
 import ToDoItemCard from '../to-do-item-card/to-do-item-card.component';
-import { StyledControlsContainer, StyledToDoListContainer } from './to-do-list.styles';
+import {
+  StyledClearCompletedButton,
+  StyledControlsContainer,
+  StyledFilterBar,
+  StyledToDoListContainer,
+} from './to-do-list.styles';
 
 const ToDoList = () => {
   const toDoItemsContext = useContext(ToDoItemsContext);
@@ -11,7 +16,7 @@ const ToDoList = () => {
     throw new Error('CurrentThemeContext is not provided');
   }
 
-  const { filteredToDoItems } = toDoItemsContext;
+  const { clearCompleted, filteredToDoItems, activeItemsCount } = toDoItemsContext;
 
   return (
     <StyledToDoListContainer>
@@ -19,8 +24,9 @@ const ToDoList = () => {
         return <ToDoItemCard key={item.id} toDoItem={item} />;
       })}
       <StyledControlsContainer>
-        <p>5 items left</p>
-        <p>Clear Completed</p>
+        <p>{activeItemsCount} items left</p>
+        <StyledFilterBar />
+        <StyledClearCompletedButton onClick={clearCompleted}>Clear Completed</StyledClearCompletedButton>
       </StyledControlsContainer>
     </StyledToDoListContainer>
   );

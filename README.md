@@ -81,4 +81,4 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    };
    ```
 
-This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react
+   This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react

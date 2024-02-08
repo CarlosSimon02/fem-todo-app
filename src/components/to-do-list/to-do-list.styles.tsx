@@ -4,7 +4,6 @@ import LinkButton from '../../styles/common/linkButton';
 import MainBox from '../../styles/common/mainBox';
 import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 import pxToRem from '../../styles/functions/pxToRem';
-import FilterBar from '../filter-bar/filter-bar.component';
 
 export const StyledToDoListContainer = styled.div`
   ${MainBox}
@@ -21,6 +20,7 @@ export const StyledControlsContainer = styled.div`
   padding-inline: ${fluidSizeMobileToDesktop(20, 24)};
   padding-block: ${pxToRem(20)};
   font-size: ${fluidSizeMobileToDesktop(12, 14)};
+  position: relative;
 
   & > * {
     width: fit-content;
@@ -31,9 +31,9 @@ export const StyledClearCompletedButton = styled.div`
   ${LinkButton}
 `;
 
-export const StyledFilterBar = styled(FilterBar)`
-  position: absolute;
-  top: 50%;
-  left: 50;
-  transform: translate(-50%, -50%);
-`;
+// export const StyledFilterBar = styled(FilterBar)`
+//   position: absolute;
+//   top: 50%;
+//   left: 50;
+//   transform: translate(-50%, -50%);
+// `;

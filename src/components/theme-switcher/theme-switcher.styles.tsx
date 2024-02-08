@@ -11,6 +11,12 @@ export const StyledThemeSwitcherButton = styled.button`
   padding: 0;
   border: none;
   background-color: transparent;
+  transition: rotate 1s ease-out;
+
+  &:hover {
+    rotate: -110deg;
+    transition: rotate 0.2s ease-out;
+  }
 `;
 
 const StyledIcon = css`

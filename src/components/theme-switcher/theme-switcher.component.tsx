@@ -1,20 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { CurrentThemeContext, ThemeType } from '../../contexts/current-theme.context';
-import {
-  StyledMoonIcon,
-  StyledSunIcon,
-  StyledThemeSwitcherButton,
-} from './theme-switcher.styles';
+import { ThemeType } from '../../contexts/current-theme.context';
+import useCurrentTheme from '../../hooks/useCurrentTheme.hook';
+import { StyledMoonIcon, StyledSunIcon, StyledThemeSwitcherButton } from './theme-switcher.styles';
 
 const ThemeSwitcher: React.FC = () => {
-  const currentThemeContext = useContext(CurrentThemeContext);
-
-  if (!currentThemeContext) {
-    throw new Error('CurrentThemeContext is not provided');
-  }
-
-  const { currentTheme, setCurrentTheme } = currentThemeContext;
+  const { currentTheme, setCurrentTheme } = useCurrentTheme();
 
   const toggleThemeHandler = () => {
     setCurrentTheme(currentTheme === ThemeType.Light ? ThemeType.Dark : ThemeType.Light);

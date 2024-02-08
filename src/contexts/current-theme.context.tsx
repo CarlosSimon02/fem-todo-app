@@ -17,7 +17,7 @@ type ThemeProviderProps = {
 export const CurrentThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const CurrentThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [currentTheme, setCurrentTheme] = useState<ThemeType>(ThemeType.Dark);
+  const [currentTheme, setCurrentTheme] = useState<ThemeType>(ThemeType.Light);
 
   const contextValue: ThemeContextProps = {
     currentTheme,

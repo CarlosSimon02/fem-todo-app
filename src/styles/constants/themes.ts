@@ -1,6 +1,3 @@
-import bgImageDarkJPG from '../../assets/bg-desktop-dark.jpg';
-import bgImageLightJPG from '../../assets/bg-desktop-light.jpg';
-
 const darktheme = {
   color: {
     accent: {
@@ -36,7 +33,6 @@ const darktheme = {
       background: 'hsl(236.69, 13.64%, 25.88%)',
     },
   },
-  bgImage: bgImageDarkJPG,
 };
 
 const lightTheme = {
@@ -74,12 +70,17 @@ const lightTheme = {
       background: 'hsl(235.71, 33.33%, 91.76%)',
     },
   },
-  bgImage: bgImageLightJPG,
 };
 
 const defaultTheme = {
   borderRadius: {
     small: '5px',
+  },
+  transition: {
+    color: {
+      delay: '.7s',
+      timingFunc: 'ease-out',
+    },
   },
 };
 

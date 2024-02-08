@@ -2,9 +2,12 @@ import { ChangeEvent } from 'react';
 
 import { FilterType } from '../../contexts/to-do-items.context';
 import useToDoItems from '../../hooks/useToDoItems.hook';
+import useWindow from '../../hooks/useWindow.hook';
+import { BREAKPOINTS } from '../../styles/constants/breakpoints';
 import { StyledFieldSet, StyledLabel } from './filter-bar.styles';
 
 const FilterBar = () => {
+  const { innerWidth } = useWindow();
   const { currentFilter, setCurrentFilter } = useToDoItems();
 
   const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +17,7 @@ const FilterBar = () => {
   };
 
   return (
-    <StyledFieldSet>
+    <StyledFieldSet className={innerWidth < BREAKPOINTS.UP.TABLET ? 'isolated' : 'integrated'}>
       <legend className="sr-only">Choose a filter</legend>
       <StyledLabel>
         <input

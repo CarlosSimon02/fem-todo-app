@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 
 import LinkButton from '../../styles/common/linkButton';
+import MainBox from '../../styles/common/mainBox';
 import FONT_WEIGHTS from '../../styles/constants/font-weights';
 import pxToRem from '../../styles/functions/pxToRem';
 
 export const StyledFieldSet = styled.fieldset`
-  padding: 0;
   border: none;
   gap: ${pxToRem(18)};
   display: flex;
 
-  .isolated {
+  &.isolated {
+    ${MainBox}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: ${pxToRem(15)};
   }
 
-  .integrated {
+  &.integrated {
+    padding: 0;
   }
 `;
 

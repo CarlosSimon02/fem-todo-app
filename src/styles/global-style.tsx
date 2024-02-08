@@ -1,6 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
 
-import FONT_WEIGHTS from './constants/font-weights';
 import pxToRem from './functions/pxToRem';
 
 const Resets = css`
@@ -53,15 +52,6 @@ const Base = css`
     color: red;
   }
 
-  body {
-    background-color: ${({ theme }) => theme.color.body.background};
-    color: ${({ theme }) => theme.color.body.text};
-    font-family: 'Josefin Sans', sans-serif;
-    font-optical-sizing: auto;
-    font-weight: ${FONT_WEIGHTS.REGULAR};
-    font-style: normal;
-  }
-
   .sr-only {
     position: absolute !important;
     clip-path: inset(50%) !important;
@@ -78,6 +68,19 @@ const Base = css`
   *:focus-visible {
     outline: ${pxToRem(1)} solid ${({ theme }) => theme.color.accent.main};
     outline-offset: 3px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition:
+      color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
+      background-color ${({ theme }) => theme.transition.color.delay}
+        ${({ theme }) => theme.transition.color.timingFunc},
+      fill ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
+      stroke ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
+      box-shadow ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
+      border-color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc};
   }
 `;
 

@@ -1,12 +1,12 @@
 export const BREAKPOINTS = {
   UP: {
     MOBILE: 375,
-    TABLET: 700,
+    TABLET: 500,
     DESKTOP: 1440,
   },
   DOWN: {
     MOBILE: 375,
-    TABLET: 700,
+    TABLET: 500,
     DESKTOP: 1440,
   },
 };

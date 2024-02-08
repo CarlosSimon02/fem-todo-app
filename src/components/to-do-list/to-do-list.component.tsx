@@ -1,13 +1,9 @@
 import { useContext } from 'react';
 
 import { ToDoItemsContext } from '../../contexts/to-do-items.context';
+import FilterBar from '../filter-bar/filter-bar.component';
 import ToDoItemCard from '../to-do-item-card/to-do-item-card.component';
-import {
-  StyledClearCompletedButton,
-  StyledControlsContainer,
-  StyledFilterBar,
-  StyledToDoListContainer,
-} from './to-do-list.styles';
+import { StyledClearCompletedButton, StyledControlsContainer, StyledToDoListContainer } from './to-do-list.styles';
 
 const ToDoList = () => {
   const toDoItemsContext = useContext(ToDoItemsContext);
@@ -25,7 +21,7 @@ const ToDoList = () => {
       })}
       <StyledControlsContainer>
         <p>{activeItemsCount} items left</p>
-        <StyledFilterBar />
+        <FilterBar />
         <StyledClearCompletedButton onClick={clearCompleted}>Clear Completed</StyledClearCompletedButton>
       </StyledControlsContainer>
     </StyledToDoListContainer>

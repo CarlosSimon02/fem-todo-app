@@ -1,16 +1,11 @@
-import { ChangeEvent, useContext } from 'react';
+import { ChangeEvent } from 'react';
 
-import { FilterType, ToDoItemsContext } from '../../contexts/to-do-items.context';
+import { FilterType } from '../../contexts/to-do-items.context';
+import useToDoItems from '../../hooks/useToDoItems.hook';
 import { StyledFieldSet, StyledLabel } from './filter-bar.styles';
 
 const FilterBar = () => {
-  const toDoItemsContext = useContext(ToDoItemsContext);
-
-  if (!toDoItemsContext) {
-    throw new Error('CurrentThemeContext is not provided');
-  }
-
-  const { currentFilter, setCurrentFilter } = toDoItemsContext;
+  const { currentFilter, setCurrentFilter } = useToDoItems();
 
   const inputChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {

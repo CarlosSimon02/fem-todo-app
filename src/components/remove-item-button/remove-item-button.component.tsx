@@ -1,6 +1,4 @@
-import { useContext } from 'react';
-
-import { ToDoItemsContext } from '../../contexts/to-do-items.context';
+import useToDoItems from '../../hooks/useToDoItems.hook';
 import { StyledCrossIcon, StyledRemoveItemButton } from './remove-item-button.styles';
 
 type RemoveItemButtonProps = {
@@ -8,13 +6,7 @@ type RemoveItemButtonProps = {
 };
 
 const RemoveItemButton = ({ toDoItemID }: RemoveItemButtonProps) => {
-  const toDoItemsContext = useContext(ToDoItemsContext);
-
-  if (!toDoItemsContext) {
-    throw new Error('CurrentThemeContext is not provided');
-  }
-
-  const { deleteToDoItem } = toDoItemsContext;
+  const { deleteToDoItem } = useToDoItems();
 
   const buttonClickHandler = () => {
     deleteToDoItem(toDoItemID);

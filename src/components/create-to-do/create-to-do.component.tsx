@@ -1,8 +1,8 @@
-import { ChangeEvent, KeyboardEvent, useContext, useRef, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useRef, useState } from 'react';
 
 import { v4 } from 'uuid';
 
-import { ToDoItemsContext } from '../../contexts/to-do-items.context';
+import useToDoItems from '../../hooks/useToDoItems.hook';
 import Checkbox from '../checkbox/checkbox.component';
 import { StyledCreateToDoContainer, StyledCreateToDoInput } from './create-to-do.styles';
 
@@ -10,14 +10,7 @@ const CreateToDo = () => {
   const [inputValue, setInputValue] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const toDoItemsContext = useContext(ToDoItemsContext);
-
-  if (!toDoItemsContext) {
-    throw new Error('ToDoItemsContext is not provided');
-  }
-
-  const { createToDoItem } = toDoItemsContext;
+  const { createToDoItem } = useToDoItems();
 
   // handle checkbox click event
   const toggleCheckHandler = () => setIsChecked((prev) => !prev);

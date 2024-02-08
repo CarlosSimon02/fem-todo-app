@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
-import { ToDoItem, ToDoItemsContext } from '../../contexts/to-do-items.context';
+import { ToDoItem } from '../../contexts/to-do-items.context';
+import useToDoItems from '../../hooks/useToDoItems.hook';
 import Checkbox from '../checkbox/checkbox.component';
 import RemoveItemButton from '../remove-item-button/remove-item-button.component';
 import { StyledToDoItemCardContainer } from './to-do-item-card.styles';
@@ -13,13 +14,7 @@ type ToDoItemCardProps = {
 const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
   const { id, isCompleted, task } = toDoItem;
   const [isChecked, setIsChecked] = useState(isCompleted);
-  const toDoItemsContext = useContext(ToDoItemsContext);
-
-  if (!toDoItemsContext) {
-    throw new Error('CurrentThemeContext is not provided');
-  }
-
-  const { updateToDoItem } = toDoItemsContext;
+  const { updateToDoItem } = useToDoItems();
 
   const toggleCheckHandler = () => {
     const newIsChecked = !isChecked;

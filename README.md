@@ -163,3 +163,5 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
      return updatedItems;
    });
    ```
+
+7. Remove transition on page load

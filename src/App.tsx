@@ -2,7 +2,6 @@ import { ThemeProvider } from 'styled-components';
 
 import useCurrentTheme from './hooks/useCurrentTheme.hook';
 import Main from './routes/main/main.route';
-import MainBackground from './styles/common/mainBackground';
 import theme from './styles/constants/themes';
 import GlobalStyle from './styles/global-style';
 
@@ -12,9 +11,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <MainBackground>
-        <Main />
-      </MainBackground>
+      <Main />
     </ThemeProvider>
   );
 };

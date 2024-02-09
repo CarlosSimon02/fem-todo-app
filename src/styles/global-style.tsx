@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
 
+import FONT_WEIGHTS from './constants/font-weights';
 import pxToRem from './functions/pxToRem';
 
 const Resets = css`
@@ -48,6 +49,13 @@ const Base = css`
     display: none;
   }
 
+  .no-transition * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+
   noscript {
     color: red;
   }
@@ -64,15 +72,23 @@ const Base = css`
     white-space: nowrap !important;
   }
 
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: ${FONT_WEIGHTS.REGULAR};
+    font-style: normal;
+    z-index: -100;
+    background-color: ${({ theme }) => theme.color.body.background};
+    color: ${({ theme }) => theme.color.body.text};
+  }
+
   //Added style to all focusable elements when using tab or keyboard selection
   *:focus-visible {
     outline: ${pxToRem(1)} solid ${({ theme }) => theme.color.accent.main};
     outline-offset: 3px;
   }
 
-  *,
-  *::before,
-  *::after {
+  * {
     transition:
       color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
       background-color ${({ theme }) => theme.transition.color.delay}

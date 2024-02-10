@@ -51,166 +51,183 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### 🧠What I learned
 
-1. #### **TypeScript**
+#### **1.) TypeScript**
 
-   Handling unpredictable behaviors in JavaScript, such as uncertainties about function input/output and dealing with `undefined` or `null` types, can be challenging. That's why I turned to TypeScript. With TypeScript, I gain clarity on expected values, making coding easier. Additionally, the built-in intellisense in code editors provides helpful hints, reducing the need to constantly refer to my codebase for information.
+Handling unpredictable behaviors in JavaScript, such as uncertainties about function input/output and dealing with `undefined` or `null` types, can be challenging. That's why I turned to TypeScript. With TypeScript, I gain clarity on expected values, making coding easier. Additionally, the built-in intellisense in code editors provides helpful hints, reducing the need to constantly refer to my codebase for information.
 
-   These are the resources that I use:
+These are the resources that I use:
 
-   - <https://react.dev/learn/typescript>
-   - <https://www.typescriptlang.org/docs/handbook/react.html>
+- <https://react.dev/learn/typescript>
+- <https://www.typescriptlang.org/docs/handbook/react.html>
 
-2. **`:focus` vs `:focus-visible`**
+---
 
-   `:focus`
+#### **2.) `:focus` vs `:focus-visible`**
 
-   Selects and styles an element when it receives focus, regardless of how focus is triggered (keyboard, mouse, touch).
+`:focus`
 
-   `:focus-visible`
+Selects and styles an element when it receives focus, regardless of how focus is triggered (keyboard, mouse, touch).
 
-   Style when element gets focus from navigation (keyboard) but not mouse clicks or taps except for `input` elements (Not sure why);
+`:focus-visible`
 
-   I use this for accessibility purposes
+Style when element gets focus from navigation (keyboard) but not mouse clicks or taps except for `input` elements (Not sure why);
 
-3. **Unnecessary use of useEffect()**
+I use this for accessibility purposes
 
-   I don't have to call `updateToDoItem()` on component mount
+---
 
-   Don't ❌
+#### **3.) Unnecessary use of useEffect()**
 
-   ```js
-   useEffect(() => {
-     updateToDoItem({ ...toDoItem, isCompleted: isChecked });
-   }, [isChecked]);
+I don't have to call `updateToDoItem()` on component mount
 
-   const toggleCheckHandler = () => {
-     setIsChecked(!isChecked);
-   };
-   ```
+Don't ❌
 
-   I'm trying to understand why, when I delete an item, the `updateToDoItem()` inside the `useEffect()` works fine when I use `toDoItems` for showing my to-dos. But when I use `filteredToDoItems`, it seems to have an issue. My guess is that when I delete an item, `toDoItems` update first, causing the component to rerender before `filteredToDoItems` get updated. I'm trying to figure out the reason behind this behavior.
+```js
+useEffect(() => {
+  updateToDoItem({ ...toDoItem, isCompleted: isChecked });
+}, [isChecked]);
 
-   Do ✅
+const toggleCheckHandler = () => {
+  setIsChecked(!isChecked);
+};
+```
 
-   ```js
-   const toggleCheckHandler = () => {
-     const newIsChecked = !isChecked;
-     setIsChecked(newIsChecked);
-     updateToDoItem({ ...toDoItem, isCompleted: newIsChecked });
-   };
-   ```
+I'm trying to understand why, when I delete an item, the `updateToDoItem()` inside the `useEffect()` works fine when I use `toDoItems` for showing my to-dos. But when I use `filteredToDoItems`, it seems to have an issue. My guess is that when I delete an item, `toDoItems` update first, causing the component to rerender before `filteredToDoItems` get updated. I'm trying to figure out the reason behind this behavior.
 
-   This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react
+Do ✅
 
-4. **`as` keyword in Typescript**
+```js
+const toggleCheckHandler = () => {
+  const newIsChecked = !isChecked;
+  setIsChecked(newIsChecked);
+  updateToDoItem({ ...toDoItem, isCompleted: newIsChecked });
+};
+```
 
-   Pretty much the same as type casting in other languages like C++.
+This happens to me alot. Maybe because I'm not knowledgable enough about how rendering works in react
 
-   C++:
+---
 
-   ```c++
-   bool myBool = true;
-   int myInt = static_cast<int>(myBool);
-   ```
+#### **4.) `as` keyword in Typescript**
 
-   TypeScript:
+Pretty much the same as type casting in other languages like C++.
 
-   ```typescript
-   let myBool: boolean = true;
-   let myInt: number = myBool as unknown as number;
-   ```
+C++:
 
-5. **Syling hidden `input[type='radio']`**
+```c++
+bool myBool = true;
+int myInt = static_cast<int>(myBool);
+```
 
-   I don't know how many times I came accross with this problem before but now that I use react, it's even worse.
+TypeScript:
 
-   Don't ❌
+```typescript
+let myBool: boolean = true;
+let myInt: number = myBool as unknown as number;
+```
 
-   ```html
-   <input class="sr-only" name="fruit" id="apple" /> <label for="apple">Apple</label>
-   ```
+---
 
-   There's this weird thing happening when I click. The check mark ends up in the wrong place, not where I clicked.
+#### **5.) Syling hidden `input[type='radio']`**
 
-   Do ✅
+I don't know how many times I came accross with this problem before but now that I use react, it's even worse.
 
-   ```html
-   <label>
-     <input class="sr-only" name="fruit" id="apple" />
-     <p>Apple</p>
-   </label>
-   ```
+Don't ❌
 
-   I found a fix that works for me. I just apply styles to the label when the `input` is hidden using the `:checked + p` selector. This gets rid of that strange behavior I mentioned earlier.
+```html
+<input class="sr-only" name="fruit" id="apple" /> <label for="apple">Apple</label>
+```
 
-6. **Do not return the same reference to the updater function in useState() IDIOT!!!**
+There's this weird thing happening when I click. The check mark ends up in the wrong place, not where I clicked.
 
-   Don't ❌
+Do ✅
 
-   ```typescript
-   setToDoItems((prevToDoItems) => {
-     prevToDoItems[indexToUpdate] = toUpdateItem;
-     return prevToDoItems;
-   });
-   ```
+```html
+<label>
+  <input class="sr-only" name="fruit" id="apple" />
+  <p>Apple</p>
+</label>
+```
 
-   Do ✅
+I found a fix that works for me. I just apply styles to the label when the `input` is hidden using the `:checked + p` selector. This gets rid of that strange behavior I mentioned earlier.
 
-   ```typescript
-   setToDoItems((prevToDoItems) => {
-     const updatedItems = [...prevToDoItems];
-     updatedItems[indexToUpdate] = toUpdateItem;
-     return updatedItems;
-   });
-   ```
+#### **6.) Do not return the same reference to the updater function in useState() IDIOT!!!**
 
-7. **Remove transition on page load**
-8. **Fixing enter animations that are triggered (started) twice in framer motion**
-   just use v4() from uuid
-9. **Disabling initial transition of `<AnimatePresence>` children elements when `initial` prop is set to `false`**
+Don't ❌
 
-   Don't ❌
+```typescript
+setToDoItems((prevToDoItems) => {
+  prevToDoItems[indexToUpdate] = toUpdateItem;
+  return prevToDoItems;
+});
+```
 
-   ```typescript
-   const Item = () => (
-     <div>
-       <motion.div
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         exit={{ opacity: 0 }}
-       />
-     </div>
-   )
+Do ✅
 
-   export const MyComponent = ({ items }) => (
-     <AnimatePresence initial={false}>
-       <Item key={id} />
-     </AnimatePresence>
-   )
-   ```
+```typescript
+setToDoItems((prevToDoItems) => {
+  const updatedItems = [...prevToDoItems];
+  updatedItems[indexToUpdate] = toUpdateItem;
+  return updatedItems;
+});
+```
 
-   This will still trigger `initial` animation despite `initial` props of `<AnimatePresence>` is set to `false`
+---
 
-   Do ✅
+#### **7.) Remove transition on page load**
 
-   ```typescript
-   const Item:JSX.Element = (
-     <div key={id}>
-       <motion.div
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         exit={{ opacity: 0 }}
-       />
-     </div>
-   )
+---
 
-   export const MyComponent = ({ items }) => (
-     <AnimatePresence initial={false}>
-       {Item}
-     </AnimatePresence>
-   )
-   ```
+#### **8.) Fixing enter animations that are triggered (started) twice in framer motion**
 
-   `Item` should be a direct descendant of `<AnimatePresence>`
+just use v4() from uuid
 
-   <https://www.framer.com/motion/animate-presence/##animating-custom-components>
+---
+
+#### **9.) Disabling initial transition of `<AnimatePresence>` children elements when `initial` prop is set to `false`**
+
+Don't ❌
+
+```typescript
+const Item = () => (
+  <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    />
+  </div>
+)
+
+export const MyComponent = ({ items }) => (
+  <AnimatePresence initial={false}>
+    <Item key={id} />
+  </AnimatePresence>
+)
+```
+
+This will still trigger `initial` animation despite `initial` props of `<AnimatePresence>` is set to `false`
+
+Do ✅
+
+```typescript
+const Item:JSX.Element = (
+  <div key={id}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    />
+  </div>
+)
+
+export const MyComponent = ({ items }) => (
+  <AnimatePresence initial={false}>
+    {Item}
+  </AnimatePresence>
+)
+```
+
+`Item` should be a direct descendant of `<AnimatePresence>`
+
+<https://www.framer.com/motion/animate-presence/##animating-custom-components>

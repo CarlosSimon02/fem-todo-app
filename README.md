@@ -231,3 +231,13 @@ export const MyComponent = ({ items }) => (
 `Item` should be a direct descendant of `<AnimatePresence>`
 
 <https://www.framer.com/motion/animate-presence/##animating-custom-components>
+
+---
+
+#### **10.) Dont rely too much on the framework**
+
+using useEffect() instead of `<AnimatePresence>` initial property
+
+---
+
+#### **11.) Using custom components in `<Draggable>`**

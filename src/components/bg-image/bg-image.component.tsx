@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { v4 } from 'uuid';
 
 import { ThemeType } from '../../contexts/current-theme.context';
 import useCurrentTheme from '../../hooks/useCurrentTheme.hook';
@@ -20,9 +21,9 @@ const BGImage = () => {
     <StyledBGImageContainer>
       <AnimatePresence initial={false}>
         {currentTheme === ThemeType.Light ? (
-          <AnimateLightModeImage key="dark-image" {...imageAnimateProps} />
+          <AnimateLightModeImage key={v4()} {...imageAnimateProps} />
         ) : (
-          <AnimateDarkModeImage key="light-image" {...imageAnimateProps} />
+          <AnimateDarkModeImage key={v4()} {...imageAnimateProps} />
         )}
       </AnimatePresence>
     </StyledBGImageContainer>

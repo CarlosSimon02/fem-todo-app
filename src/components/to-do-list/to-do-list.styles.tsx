@@ -27,7 +27,7 @@ export const StyledControlsContainer = styled.div`
   }
 `;
 
-export const StyledClearCompletedButton = styled.div`
+export const StyledClearCompletedButton = styled.button`
   ${LinkButton}
 `;
 

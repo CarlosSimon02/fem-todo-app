@@ -1,28 +1,27 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-import { CheckCircleIcon } from './checkbox.animates';
-import { StyledCheckboxButton, StyledDefaultCircleIcon } from './checkbox.styles';
-
-const AnimatedCheckboxButton = motion(StyledCheckboxButton);
-
-type CheckBoxProps = {
-  checked?: boolean;
-  onClick?: () => void;
-};
+import { CheckContainerIcon, CheckIndicatorIcon } from './checkbox.icons';
+import { CheckBoxProps } from './checkbox.props';
+import { StyledCheckboxButton } from './checkbox.styles';
 
 const Checkbox = ({ checked, onClick }: CheckBoxProps) => {
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(false);
   const defaultChecked = checked ? checked : false;
+
+  useEffect(() => {
+    setIsTransitionEnabled(true);
+  }, []);
 
   const handleButtonClick = () => {
     onClick && onClick();
   };
 
   return (
-    <AnimatedCheckboxButton className={defaultChecked ? 'checked' : 'unchecked'} onClick={handleButtonClick}>
-      <StyledDefaultCircleIcon />
-      {defaultChecked && <CheckCircleIcon />}
-      <input className="sr-only" type="checkbox" defaultChecked={defaultChecked} />
-    </AnimatedCheckboxButton>
+    <StyledCheckboxButton className={defaultChecked ? 'checked' : 'unchecked'} onClick={handleButtonClick}>
+      <CheckContainerIcon />
+      {defaultChecked && <CheckIndicatorIcon isTransitionEnabled={isTransitionEnabled} />}
+      <input className="sr-only" type="checkbox" tabIndex={-1} defaultChecked={defaultChecked} />
+    </StyledCheckboxButton>
   );
 };
 

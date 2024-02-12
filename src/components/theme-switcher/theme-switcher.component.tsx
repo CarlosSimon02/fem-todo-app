@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { v4 } from 'uuid';
 
 import { ThemeType } from '../../contexts/current-theme.context';
 import useCurrentTheme from '../../hooks/useCurrentTheme.hook';
@@ -31,9 +32,9 @@ const ThemeSwitcher = () => {
     >
       <AnimatePresence initial={false}>
         {currentTheme === ThemeType.Light ? (
-          <AnimatedMoonIcon key="moon" {...iconAnimateProps} />
+          <AnimatedMoonIcon key={v4()} {...iconAnimateProps} />
         ) : (
-          <AnimatedSunIcon key="sun" {...iconAnimateProps} />
+          <AnimatedSunIcon key={v4()} {...iconAnimateProps} />
         )}
       </AnimatePresence>
       <p className="sr-only">Toggle to {currentTheme as string} mode</p>

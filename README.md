@@ -164,4 +164,53 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
    });
    ```
 
-7. Remove transition on page load
+7. **Remove transition on page load**
+8. **Fixing enter animations that are triggered (started) twice in framer motion**
+   just use v4() from uuid
+9. **Disabling initial transition of `<AnimatePresence>` children elements when `initial` prop is set to `false`**
+
+   Don't ❌
+
+   ```typescript
+   const Item = () => (
+     <div>
+       <motion.div
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+       />
+     </div>
+   )
+
+   export const MyComponent = ({ items }) => (
+     <AnimatePresence initial={false}>
+       <Item key={id} />
+     </AnimatePresence>
+   )
+   ```
+
+   This will still trigger `initial` animation despite `initial` props of `<AnimatePresence>` is set to `false`
+
+   Do ✅
+
+   ```typescript
+   const Item:JSX.Element = (
+     <div key={id}>
+       <motion.div
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+       />
+     </div>
+   )
+
+   export const MyComponent = ({ items }) => (
+     <AnimatePresence initial={false}>
+       {Item}
+     </AnimatePresence>
+   )
+   ```
+
+   `Item` should be a direct descendant of `<AnimatePresence>`
+
+   <https://www.framer.com/motion/animate-presence/##animating-custom-components>

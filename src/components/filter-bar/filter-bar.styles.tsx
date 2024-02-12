@@ -23,12 +23,12 @@ export const StyledFieldSet = styled.fieldset`
   }
 `;
 
-export const StyledLabel = styled.label`
+export const StyledButton = styled.button`
   ${LinkButton}
   font-size: ${pxToRem(14)};
   font-weight: ${FONT_WEIGHTS.BOLD};
 
-  input[type='radio']:checked + p {
+  &.current-filter {
     color: ${({ theme }) => theme.color.accent.main};
   }
 `;

@@ -84,8 +84,7 @@ const Base = css`
 
   //Added style to all focusable elements when using tab or keyboard selection
   *:focus-visible {
-    outline: ${pxToRem(1)} solid ${({ theme }) => theme.color.accent.main};
-    outline-offset: 3px;
+    outline: ${pxToRem(2)} solid ${({ theme }) => theme.color.accent.main};
   }
 
   * {

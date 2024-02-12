@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import bgImageDarkJPG from '../../assets/bg-desktop-dark.jpg';
 import bgImageLightJPG from '../../assets/bg-desktop-light.jpg';
+import FillContainer from '../../styles/common/fillContainer';
 import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 
 export const StyledBGImageContainer = styled.div`
@@ -15,14 +16,10 @@ export const StyledBGImageContainer = styled.div`
 `;
 
 const StyledImage = css`
-  width: 100%;
-  height: 100%;
+  ${FillContainer}
   background-repeat: no-repeat;
   background-position: center;
   background-size: auto 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 `;
 
 export const LightModeImage = styled.div`

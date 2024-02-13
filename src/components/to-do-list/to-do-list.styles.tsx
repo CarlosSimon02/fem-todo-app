@@ -5,12 +5,21 @@ import MainBox from '../../styles/common/mainBox';
 import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 import pxToRem from '../../styles/functions/pxToRem';
 
+const mainGap = pxToRem(1);
+
 export const StyledToDoListContainer = styled.div`
   ${MainBox}
   overflow: clip;
   background-color: ${({ theme }) => theme.color.toDoList.background};
   display: grid;
-  gap: ${pxToRem(1)};
+  gap: ${mainGap};
+`;
+
+export const StyledList = styled.ul`
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: ${mainGap};
 `;
 
 export const StyledControlsContainer = styled.div`

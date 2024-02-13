@@ -17,10 +17,11 @@ const iconAnimateProps = {
 };
 
 const ThemeSwitcher = () => {
-  const { currentTheme, setCurrentTheme } = useCurrentTheme();
+  const { currentTheme, setAndStoreCurrentTheme } = useCurrentTheme();
 
   const toggleThemeHandler = () => {
-    setCurrentTheme(currentTheme === ThemeType.Light ? ThemeType.Dark : ThemeType.Light);
+    const themeToSet = currentTheme === ThemeType.Light ? ThemeType.Dark : ThemeType.Light;
+    setAndStoreCurrentTheme(themeToSet);
   };
 
   return (

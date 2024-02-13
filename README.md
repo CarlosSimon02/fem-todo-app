@@ -241,3 +241,23 @@ using useEffect() instead of `<AnimatePresence>` initial property
 ---
 
 #### **11.) Using custom components in `<Draggable>`**
+
+<https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/using-inner-ref.md>
+
+#### **12.) Invariant failed: Cannot find droppable entry with id [...]**
+
+Problem encountered when using `react-beautiful-dnd` on `react18`
+
+solution:
+<https://github.com/atlassian/react-beautiful-dnd/issues/2396>
+
+#### **13.) Invariant failed: Cannot finish a drop animating when no drop is occurring**
+
+solution:
+Pass key to the draggable and droppable components that is same as their respective draggable or droppable ids.
+
+And, Make sure the key you pass be unique for the item even after re-rendering.
+<https://github.com/atlassian/react-beautiful-dnd/issues/2507>
+
+> using react helmet
+> <https://www.freecodecamp.org/news/react-helmet-examples/>

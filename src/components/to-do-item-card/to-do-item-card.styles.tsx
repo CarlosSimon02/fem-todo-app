@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ItemBox from '../../styles/common/itemBox';
 import { fluidSizeMobileToDesktop } from '../../styles/functions/fluidSize';
 
-export const StyledToDoItemCardContainer = styled.div`
+export const StyledToDoItemCardContainer = styled.ul`
   ${ItemBox}
   position: relative;
   background-color: ${({ theme }) => theme.color.mainBox.background};
@@ -14,5 +14,9 @@ export const StyledToDoItemCardContainer = styled.div`
   &.done {
     text-decoration: line-through;
     color: ${({ theme }) => theme.color.itemBox.doneText};
+  }
+
+  &.is-dragging {
+    border-radius: ${({ theme }) => theme.borderRadius.small};
   }
 `;

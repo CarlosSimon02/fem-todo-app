@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
+
 import { ToDoItem } from '../../contexts/to-do-items.context';
 import useToDoItems from '../../hooks/useToDoItems.hook';
 import Checkbox from '../checkbox/checkbox.component';
@@ -7,11 +9,14 @@ import RemoveItemButton from '../remove-item-button/remove-item-button.component
 import { StyledToDoItemCardContainer } from './to-do-item-card.styles';
 
 type ToDoItemCardProps = {
-  key?: string;
+  innerRef?: (element: HTMLElement | null) => void;
+  draggableProps?: DraggableProvidedDraggableProps;
+  draghandleProps?: DraggableProvidedDragHandleProps | null | undefined;
   toDoItem: ToDoItem;
+  isDragging?: boolean;
 };
 
-const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
+const ToDoItemCard = ({ innerRef, draggableProps, draghandleProps, toDoItem, isDragging }: ToDoItemCardProps) => {
   const { id, isCompleted, task } = toDoItem;
   const [isChecked, setIsChecked] = useState(isCompleted);
   const { updateToDoItem } = useToDoItems();
@@ -23,7 +28,13 @@ const ToDoItemCard = ({ toDoItem }: ToDoItemCardProps) => {
   };
 
   return (
-    <StyledToDoItemCardContainer className={isChecked ? 'done' : ''}>
+    <StyledToDoItemCardContainer
+      ref={innerRef}
+      {...draggableProps}
+      {...draghandleProps}
+      style={draggableProps && draggableProps.style}
+      className={`${isChecked ? 'done' : ''} ${isDragging ? 'is-dragging' : ''}`}
+    >
       <Checkbox checked={isChecked} onClick={toggleCheckHandler} />
       <p>{task}</p>
       <RemoveItemButton toDoItemID={id} />

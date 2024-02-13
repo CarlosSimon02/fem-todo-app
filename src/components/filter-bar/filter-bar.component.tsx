@@ -8,10 +8,10 @@ import { StyledButton, StyledFieldSet } from './filter-bar.styles';
 
 const FilterBar = () => {
   const { innerWidth } = useWindow();
-  const { currentFilter, setCurrentFilter } = useToDoItems();
+  const { currentFilter, setAndStoreCurrentFilter } = useToDoItems();
 
   const clickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    setCurrentFilter(event.currentTarget.dataset.filter as FilterType);
+    setAndStoreCurrentFilter(event.currentTarget.dataset.filter as FilterType);
   };
 
   return (

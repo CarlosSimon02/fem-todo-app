@@ -8,4 +8,5 @@ export const StyledMainWrapper = styled.div`
   max-width: ${pxToRem(584)};
   margin-inline: auto;
   margin-block-start: ${fluidSizeMobileToDesktop(48, 70)};
+  margin-block-end: ${pxToRem(40)};
 `;

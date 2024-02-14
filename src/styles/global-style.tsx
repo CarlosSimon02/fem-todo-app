@@ -49,13 +49,6 @@ const Base = css`
     display: none;
   }
 
-  .no-transition * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-  }
-
   noscript {
     color: red;
   }
@@ -88,6 +81,14 @@ const Base = css`
   }
 
   * {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+
+  html.transition * {
     transition:
       color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
       background-color ${({ theme }) => theme.transition.color.delay}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-transition">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -233,9 +233,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script defer>
-      window.addEventListener('load', () => {
-        document.querySelector('html').classList.remove('no-transition');
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('run');
+        let node = document.querySelector('html');
+        node.classList.add('transition');
       });
     </script>
   </body>

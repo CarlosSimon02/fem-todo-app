@@ -3,9 +3,9 @@ import { v4 } from 'uuid';
 
 import { ThemeType } from '../../contexts/current-theme.context';
 import useCurrentTheme from '../../hooks/useCurrentTheme.hook';
-import { StyledMoonIcon, StyledSunIcon, StyledThemeSwitcherButton } from './theme-switcher.styles';
+import HeaderIconButton from '../header-icon-button/header-icon-button.component';
+import { StyledMoonIcon, StyledSunIcon } from './theme-switcher.styles';
 
-const AnimatedThemeSwitcherButton = motion(StyledThemeSwitcherButton);
 const AnimatedMoonIcon = motion(StyledMoonIcon);
 const AnimatedSunIcon = motion(StyledSunIcon);
 
@@ -25,12 +25,7 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <AnimatedThemeSwitcherButton
-      onTap={toggleThemeHandler}
-      whileHover={{ scale: 1.4, transition: { duration: 0.4 } }}
-      whileTap={{ scale: 0.8, transition: { duration: 0.7 } }}
-      transition={{ ease: 'easeOut', duration: 1 }}
-    >
+    <HeaderIconButton tapHandler={toggleThemeHandler} label={`Toggle to ${currentTheme as string}`}>
       <AnimatePresence initial={false}>
         {currentTheme === ThemeType.Light ? (
           <AnimatedMoonIcon key={v4()} {...iconAnimateProps} />
@@ -38,8 +33,7 @@ const ThemeSwitcher = () => {
           <AnimatedSunIcon key={v4()} {...iconAnimateProps} />
         )}
       </AnimatePresence>
-      <p className="sr-only">Toggle to {currentTheme as string} mode</p>
-    </AnimatedThemeSwitcherButton>
+    </HeaderIconButton>
   );
 };
 

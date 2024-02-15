@@ -49,8 +49,8 @@ export const StyledImage = styled.div`
   background-position: center;
   background-size: auto 100%;
   border-radius: 100%;
-  width: ${fluidSizeMobileToDesktop(60, 100)};
   height: ${fluidSizeMobileToDesktop(60, 100)};
+  aspect-ratio: 1 / 1;
 `;
 
 export const StyledInfoContainer = styled.div`

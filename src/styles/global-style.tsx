@@ -81,14 +81,6 @@ const Base = css`
   }
 
   * {
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-    transition: none;
-  }
-
-  html.transition * {
     transition:
       color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
       background-color ${({ theme }) => theme.transition.color.delay}
@@ -97,6 +89,15 @@ const Base = css`
       stroke ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
       box-shadow ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc},
       border-color ${({ theme }) => theme.transition.color.delay} ${({ theme }) => theme.transition.color.timingFunc};
+  }
+
+  body.no-transition,
+  body.no-transition * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
   }
 `;
 

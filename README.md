@@ -34,8 +34,8 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 
 ### 🔗Links
 
-- Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/fem-pomodoro-app-using-html-css-and-vanilla-javascript-g8E78rx7dm)
-- Live Site URL: ---> [LINK](https://fempomodoro.netlify.app/)
+- Solution URL: ---> [LINK](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub)
+- Live Site URL: ---> [LINK](https://femtodo.netlify.app/)
 
 ## 🚛My process
 

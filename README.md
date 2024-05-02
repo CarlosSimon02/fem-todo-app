@@ -2,9 +2,9 @@
 
 Get things done effortlessly with my FEM To-Do App! Keep track of your tasks, set priorities, and stay organized. It's designed to be straightforward and intuitive, helping you accomplish your goals with ease. Start organizing your day and boosting productivity now!
 
-## 📃Table of contents
+## Table of contents
 
-<!-- - [Overview](#overview)
+- [Overview](#overview)
   - [Preface](#preface)
   - [Features](#features)
   - [To Add Features](#to-add-features)
@@ -12,34 +12,34 @@ Get things done effortlessly with my FEM To-Do App! Keep track of your tasks, se
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned) -->
+  - [What I learned](#what-i-learned)
 
-## 👁️Overview
+## Overview
 
-### 🖐️Preface
+### Preface
 
 This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-### ✨Features
+### Features
 
 - **Timer Modes:** Switch between Pomodoro, short break, and long break modes.
 
-### 🖋️To Add Features
+### To Add Features
 
 - **Automatic Timer Mode Switch Option:** Implement functionality to offer users the option to automatically switch between Pomodoro, short break, and long break modes
 
-### 📸Screenshot
+### Screenshot
 
 <!-- ![](./preview/screenshot.png) -->
 
-### 🔗Links
+### Links
 
 - Solution URL: ---> [LINK](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub)
 - Live Site URL: ---> [LINK](https://femtodo.netlify.app/)
 
-## 🚛My process
+## My process
 
-### ⚙️Technologies Used
+### Technologies Used
 
 - SASS/SCSS for efficient styling
 - BEM (Block Element Modifier) Architecture for structured CSS
@@ -49,7 +49,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
 - Webpack for module bundling and optimization
 - HTML Semantic Tags for structured and meaningful markup
 
-### 🧠What I learned
+### What I learned
 
 #### **1.) TypeScript**
 
